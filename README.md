@@ -17,7 +17,7 @@ To fully automate the process of finding the kc to crack a5/1 encryption
 2. Download all the *.torrent files OR download the one *.tgz file
 3. Use a BitTorrent client for step 2 OR you can attempt to find the google drive link to download the rainbow tables
 4. Step 3 should take quite long
-5. Check md5 hash of all *.dlt files in your hard drive with command (md5 *.md5)
+5. Check md5 hash of all *.dlt files in your hard drive with command (md5 *.md5 OR md5sum *.md5)
 6. Match hashes with: https://jenda.hrach.eu/f2/tables.txt
 7. If hashes do not match, please re-download that specific file
 ### Kraken
