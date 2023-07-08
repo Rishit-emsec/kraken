@@ -1,4 +1,5 @@
 import os
+import sys
 import subprocess
 
 def main():
@@ -35,7 +36,10 @@ def allocate_tables(target_stream):
     for line in out.split("\n"):
         if "Found" in line:
             found = line
-    
+   
+    if found == "":
+        print("Kraken could not find the kc. Exiting program.")
+        sys.exit()
     print(f"Kraken found this: {found}")
     return found.split()
 
