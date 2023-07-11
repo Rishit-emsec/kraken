@@ -9,7 +9,7 @@ To fully automate the process of finding the kc to crack a5/1 encryption
 
 ## Steps to obtain rainbow tables (.dlt)
 ### Items required:
-- Two 2 terabyte hard disks to store rainbow tables, and another hard drive which will be used to store the rainbow tables in their raw formate
+- Two 2 terabyte hard disks. One is to store rainbow tables and another hard drive to store rainbow tables in their raw format.
 - A laptop
 - Linux system
 ### Steps to download
@@ -19,11 +19,17 @@ To fully automate the process of finding the kc to crack a5/1 encryption
 4. Step 3 should take quite long
 5. Check md5 hash of all *.dlt files in your hard drive with command (md5 *.md5 OR md5sum *.md5)
 6. Match hashes with: https://jenda.hrach.eu/f2/tables.txt
-7. If hashes do not match, please re-download that specific file
+7. If hashes do not match, please re-download that specific file (and not all of them)
 ### Kraken
-8. Clone this repository to your local computer (linux or download DragonOS and either dual bootup or use a VM)
-9. 
-10. 
+8. Clone this repository to your local computer (Linux or download DragonOS and either dual-boot or use a VM)
+9. Run `make noati`
+10. If in step 9 you get an error where you do not have stropts.h file, then run, `sudo touch /usr/include/stropts.h` and then repeat step 9
+11. Next, `cd a5_cpu` and run `./a5cpu_test`
+12. Check that the chains are made properly in steps 10 and 11
+### Index rainbow tables
+13. cd indexes
+14. Run `sudo parted -l` to check where your hard drive is
+15. 
 
 ## Process
 I will be using Python to execute all the commands required to find the kc of a bitstream while asking for the relevant inputs along the way.
