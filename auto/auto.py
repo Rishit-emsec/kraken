@@ -5,13 +5,12 @@ import subprocess
 def main():
     data = input_data()
     found = allocate_tables(data[0])
-    kc_val = find_kc(found, data)
+    kc_value = find_kc(found, data)
 
-    for line in kc_val:
-        if "MATCHED" in line:
-            kc_val = line
-
-    print(f"kc_value found is: {kc_val}")
+    if kc_value:
+        print(f"Kc value found is: {kc_value}")
+    else:
+        print("No Kc value could be found, please recheck your inputs.")
 
 def input_data():
     data = input("Enter target stream: "), input("Enter target frame: "), input("Enter guessed frame: "), input("Enter XOR-ed stream: ")
@@ -49,7 +48,13 @@ def find_kc(found, data):
 
     c2 = ["./find_kc", found[1], found[3], data[1], data[2], data[3]]
     t2 = subprocess.run(c2, capture_output=True, text=True)
-    return t2.stdout.split("\n")
+    
+    kc_val = ""
+    for line in t2.stdout.split("\n"):
+        if "MATCHED" in line:
+            kc_val = line
+
+    return kc_val
 
 
 if __name__=="__main__":
