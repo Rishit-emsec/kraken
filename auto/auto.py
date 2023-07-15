@@ -7,11 +7,6 @@ def main():
     found = allocate_tables(data[0])
     kc_value = find_kc(found, data)
 
-    if kc_value:
-        print(f"Kc value found is: {kc_value}")
-    else:
-        print("No Kc value could be found, please recheck your inputs.")
-
 def input_data():
     data = input("Enter target stream: "), input("Enter target frame: "), input("Enter guessed frame: "), input("Enter XOR-ed stream: ")
     return data
@@ -51,6 +46,12 @@ def find_kc(found, data):
     for line in t2.stdout.split("\n"):
         if "MATCHED" in line:
             kc_val = line
+
+    if kc_val:
+        print(f"Kc value found is: {kc_val}")
+    else:
+        print("No Kc value could be found, please recheck your inputs.")
+        return None
 
     return kc_val
 
