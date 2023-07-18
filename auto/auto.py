@@ -58,4 +58,8 @@ def find_kc(found, data):
 
 
 if __name__=="__main__":
-    main()
+    try:
+        main()
+    except KeyboardInterrupt:
+        print("Exiting after keyboard interruption")
+        sys.exit()
