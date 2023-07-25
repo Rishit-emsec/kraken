@@ -61,5 +61,5 @@ if __name__=="__main__":
     try:
         main()
     except KeyboardInterrupt:
-        print("Exiting after keyboard interruption")
+        print("\nExiting after keyboard interruption")
         sys.exit()
