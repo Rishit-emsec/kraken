@@ -57,3 +57,15 @@ To fully automate the process of finding the kc to crack a5/1 encryption
 - a LFSR is just a stream of bits and we have rules for how to move these bits about
 - A5/1 has three LFSRs
     - The total number of bits in these LFSRs is 19+22+23=64.
+
+### A5/1 Keystream Generation
+- all three registers are set to 0
+- for 64 cycles, key bits are fed into the LFSRs (without majority function)
+- for 22 additional cycles, a 22-bit frame number is fed to the LFSRs (without majority function)
+- 100 additional clocks with majority function are performed to obtain the initial state
+    - majority function?
+    - there are 3 LFSRs. so we look at a specific position in each LFSR. the LFSR with the majority bit (two 1s and one 0, which means 1 is a majority bit) is clocked (shift occurs)
+- 228 clocks are performed to produce 228 bits of keystream (which is XORed with the plaintext)
+- after XOR with the plaintext the ciphertext is obtained
+
+### A5/1 Decryption: TMTO attack
