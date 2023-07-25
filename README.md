@@ -41,6 +41,19 @@ To fully automate the process of finding the kc to crack a5/1 encryption
 - Then give inputs asked for
 - Refer to this video: https://www.youtube.com/watch?v=1KTSQOQWPsU&t=925s
 
-## Process
-I will be using Python to execute all the commands required to find the kc of a bitstream while asking for the relevant inputs along the way.
-
+## Theoretical aspect
+### A5/1 encryption
+- a **sycnhronous**, **stream** **cipher** used in GSM networks
+- used to encrypt both **********voice********** and ******************************signalling data******************************
+- A5/2 is ***********delibrately*********** weaker version, A5/3 is stronger version
+- GSM transmission
+    - organised as a series of bursts
+    - one burst every 4.615 milliseconds
+    - one burst contains 114 bits of information
+- A5/1 encryption is used to produce 114 bit sequence of keystream which is XORed with 114 bits prior to modulation
+- A5/1 is initialised using a 64-bit [key](https://en.wikipedia.org/wiki/Key_(cryptography)) together with a publicly known 22-bit frame number
+    - older generations had 10 bits fixed at 0 resulting in a key length of 54, which is weaker than 64. this was eventually fixed
+- A5/1 is based on a combination of three linear feedback shift registers with irregular clocking
+- a LFSR is just a stream of bits and we have rules for how to move these bits about
+- A5/1 has three LFSRs
+    - The total number of bits in these LFSRs is 19+22+23=64.
