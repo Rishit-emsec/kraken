@@ -8,9 +8,23 @@ def main():
     found = allocate_tables(data[0])
     kc_value = find_kc(found, data)
 
-def make_noati:
+"""
+Runs sudo apt-get install make and g++
+"""
+def download_prereqs():
     directory = "/home/live/kraken"
-    commnd = ["make", "noati"]
+    command1 = ["sudo", "apt-get", "install", "make"]
+    command2 = ["sudo", "apt-get", "install", "g++"]
+    process1 = subprocess.run(command1, text=True, cwd=directory)
+    process2 = subprocess.run(command2, text=True, cwd=directory)
+    return 
+
+"""
+This function helps run the make noati function required to run kraken
+"""
+def make_noati():
+    directory = "/home/live/kraken"
+    command = ["make", "noati"]
     process = subprocess.run(command,text=True, cwd=directory)
     return 
 
