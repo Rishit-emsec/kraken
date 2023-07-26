@@ -8,6 +8,12 @@ def main():
     found = allocate_tables(data[0])
     kc_value = find_kc(found, data)
 
+def make_noati:
+    directory = "/home/live/kraken"
+    commnd = ["make", "noati"]
+    process = subprocess.run(command,text=True, cwd=directory)
+    return 
+
 def input_data():
     data = input("Enter target stream: "), input("Enter target frame: "), input("Enter guessed frame: "), input("Enter XOR-ed stream: ")
     return data
@@ -23,7 +29,7 @@ def allocate_tables(target_stream):
             stderr=subprocess.PIPE, 
             universal_newlines=True, 
             cwd=kraken_dir)
-    
+
     t1.stdin.write(f"crack {target_stream}" + "\n" + "quit" + "\n")
     t1.stdin.flush()
     out, err = t1.communicate()
@@ -31,7 +37,7 @@ def allocate_tables(target_stream):
     for line in out.split("\n"):
         if "Found" in line:
             found = line
-   
+
     if found == "":
         print("Kraken could not find the kc. Exiting program.")
         sys.exit()
@@ -42,7 +48,7 @@ def find_kc(found, data):
     util_dir = "/home/live/kraken/Utilities"
     c2 = ["./find_kc", found[1], found[3], data[1], data[2], data[3]]
     t2 = subprocess.run(c2, capture_output=True, text=True, cwd=util_dir)
-    
+
     kc_val = ""
     for line in t2.stdout.split("\n"):
         if "MATCHED" in line:
