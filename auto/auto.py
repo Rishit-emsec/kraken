@@ -8,34 +8,15 @@ def main():
     found = allocate_tables(data[0])
     kc_value = find_kc(found, data)
 
-"""
-Runs sudo apt-get install make and g++
-"""
-def download_prereqs():
-    directory = "/home/live/kraken"
-    command1 = ["sudo", "apt-get", "install", "make"]
-    command2 = ["sudo", "apt-get", "install", "g++"]
-    process1 = subprocess.run(command1, text=True, cwd=directory)
-    process2 = subprocess.run(command2, text=True, cwd=directory)
-    return 
-
-"""
-This function helps run the make noati function required to run kraken
-"""
-def make_noati():
-    directory = "/home/live/kraken"
-    command = ["make", "noati"]
-    process = subprocess.run(command,text=True, cwd=directory)
-    return 
-
 def input_data():
     data = input("Enter target stream: "), input("Enter target frame: "), input("Enter guessed frame: "), input("Enter XOR-ed stream: ")
     return data
 
 def allocate_tables(target_stream):
 
-    kraken_dir = "/home/ubuntu/kraken/Kraken"
-
+    # kraken_dir = "/home/ubuntu/kraken/Kraken"
+    kraken_dir = str(os.getcwd()[0:-4]) + "Kraken"
+    print(kraken_dir)
     print("Running kraken")
     c1 = ["sudo", "./kraken", "../indexes/"]
     t1 = subprocess.Popen(c1, stdin=subprocess.PIPE, 
@@ -59,7 +40,9 @@ def allocate_tables(target_stream):
     return found.split()
 
 def find_kc(found, data):
-    util_dir = "/home/live/kraken/Utilities"
+    # util_dir = "/home/rishit/kraken/Utilities"
+    util_dir = str(os.getcwd()[0:-4]) + "Utilities"
+    print(util_dir)
     c2 = ["./find_kc", found[1], found[3], data[1], data[2], data[3]]
     t2 = subprocess.run(c2, capture_output=True, text=True, cwd=util_dir)
 
@@ -77,7 +60,7 @@ def find_kc(found, data):
     return kc_val
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     try:
         main()
     except KeyboardInterrupt:
