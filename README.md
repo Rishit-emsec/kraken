@@ -37,9 +37,11 @@ To fully automate the process of finding the kc to crack a5/1 encryption
 20. This should allow you to access the Kraken server. Note: it should take some time for the tables to be allocated properly
 21. Note that if allocation of rainbow tables is not done properly, one of your .idx files may be corrupt, you can reindex that particular file
 ### Automated version
-- Complete till step 16 and run `python3 auto.py`
-- Then give inputs asked for
-- Refer to this video: https://www.youtube.com/watch?v=1KTSQOQWPsU&t=925s
+- Run setup.py in "kraken/auto/"
+- Index rainbow tables (steps 13 - 15)
+- Run auto.py in "kraken/auto/"
+- Enter inputs required
+- Refer to this video for inputs required: https://www.youtube.com/watch?v=1KTSQOQWPsU&t=925s
 
 ## Theoretical aspect
 ### A5/1 encryption
