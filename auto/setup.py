@@ -8,6 +8,7 @@ Runs sudo apt-get install make and g++
 def download_prereqs():
     # Since file will be in the auto directory
     directory = os.getcwd()[0:-4]
+    directory = "/home/ubuntu/kraken"
     print(directory)
     command1 = ["sudo", "apt-get", "install", "make"]
     command2 = ["sudo", "apt-get", "install", "g++"]
@@ -20,6 +21,7 @@ This function helps run the make noati function required to run kraken
 """
 def make_noati():
     directory = os.getcwd()[0:-4]
+    directory = "/home/ubuntu/kraken"
     print(directory)
     command = ["make", "noati"]
     process = subprocess.run(command,text=True, cwd=directory)
