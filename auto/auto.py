@@ -1,12 +1,24 @@
 import os
 import sys
+import time
 import subprocess
 
 def main():
     # data = input_data()
     data = ["100000110100111111001110010101110101011111111010111011101101100000001001101101100001111000111010000110110001110000", "1152173", "1152140", "111111010101101110100001101011111100000000111101011000011111101001100100111101100001100111000110011000010000000010"]
     found = allocate_tables(data[0])
+    while not found:
+        data = input_data()
+        found = allocate_tables(data[0])
+   
+    print(f"Found values: {found}")
     kc_value = find_kc(found, data)
+
+    # Reformat the kc_value
+    kc_value = kc_value.split()[1:-3]
+    kc_value = "".join(kc_value)
+    kc_value = kc_value.upper()
+    print(f"We can return this output: {kc_value}")
 
 def input_data():
     data = input("Enter target stream: "), input("Enter target frame: "), input("Enter guessed frame: "), input("Enter XOR-ed stream: ")
@@ -33,10 +45,6 @@ def allocate_tables(target_stream):
         if "Found" in line:
             found = line
 
-    if found == "":
-        print("Kraken could not find the kc. Exiting program.")
-        sys.exit()
-    print(f"Kraken found this: {found}")
     return found.split()
 
 def find_kc(found, data):
@@ -62,7 +70,10 @@ def find_kc(found, data):
 
 if __name__ == "__main__":
     try:
+        start_time = time.time()
         main()
+        print(time.time() - start_time)
+
     except KeyboardInterrupt:
         print("\nExiting after keyboard interruption")
         sys.exit()
