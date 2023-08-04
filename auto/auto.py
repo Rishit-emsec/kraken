@@ -22,6 +22,14 @@ def main():
 
 def input_data():
     data = input("Enter target stream: "), input("Enter target frame: "), input("Enter guessed frame: "), input("Enter XOR-ed stream: ")
+    bitstream1 = input("Enter unencrypted bitstream: ")
+    bitstream2 = input("Enter encrypted bitstream: ")
+    
+    # util_dir = "/home/rishit/kraken/Utilities"
+    util_dir = str(os.getcwd()[0:-4]) + "Utilities"
+    print(util_dir)
+    xor_command = ["./xor.py", bitstream1, bitstream2] 
+    xor_proc = subprocess.run(c2, capture_output=True, text=True, cwd=util_dir)
     return data
 
 def allocate_tables(target_stream):
