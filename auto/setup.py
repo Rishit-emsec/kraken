@@ -3,7 +3,7 @@ def main():
     make_noati()
 
 """
-Runs sudo apt-get install make and g++
+Runs sudo apt-get install make g++
 """
 def download_prereqs():
     # Since file will be in the auto directory
