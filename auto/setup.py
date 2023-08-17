@@ -23,9 +23,14 @@ def make_noati():
     directory = os.getcwd()[0:-4]
     directory = "/home/rishit/kraken"
     print(directory)
-    command = ["make", "noati"]
-    process = subprocess.run(command,text=True, cwd=directory)
+    c1 = ["sudo", "touch", "/usr/include/stropts.h"] # There is some error that occurs (to do with C/C++) when this file is not there
+    c2 = ["make", "noati"]
+    p1 = subprocess.run(c1, text=True, cwd=directory)
+    p2 = subprocess.run(c2, text=True, cwd=directory)
     return
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except Exception as e:
+        print(f"The following exception has occured: \n{e}")
