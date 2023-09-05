@@ -1,7 +1,8 @@
 # Kraken A5/1 Cracking Project
 
 ## Aim 
-To fully automate the process of finding the kc to crack a5/1 encryption
+To fully automate the process of finding the kc to crack a5/1 encryption.
+To learn more about GSM check out this paper: https://academicworks.cuny.edu/cgi/viewcontent.cgi?article=1872&context=cc_etds_theses
 
 ## Tech stack
 - Python3
@@ -71,3 +72,6 @@ To fully automate the process of finding the kc to crack a5/1 encryption
 - after XOR with the plaintext the ciphertext is obtained
 
 ### A5/1 Decryption: TMTO attack
+- store the plaintext -> hashed value
+- use rainbow tables to crack
+- for more in-depth explanation check online
