@@ -8,6 +8,11 @@ To learn more about GSM check out this paper: https://academicworks.cuny.edu/cgi
 - Python3
 - C/C++
 
+### Important links and videos to watch before following these steps
+- https://www.youtube.com/watch?v=8MWzFyE4k8s&t=702s
+- https://www.youtube.com/watch?v=1KTSQOQWPsU
+- Crazy danish hacker videos on Kraken
+
 ## Steps to obtain rainbow tables (.dlt)
 ### Items required:
 - Two 2 terabyte hard disks. One is to store rainbow tables and another hard drive to store rainbow tables in their raw format.
@@ -78,8 +83,3 @@ To learn more about GSM check out this paper: https://academicworks.cuny.edu/cgi
 - store the plaintext -> hashed value
 - use rainbow tables to crack
 - for more in-depth explanation check online
-
-### Important links and videos to watch
-- https://www.youtube.com/watch?v=8MWzFyE4k8s&t=702s
-- https://www.youtube.com/watch?v=1KTSQOQWPsU
-- Crazy danish hacker videos on Kraken
