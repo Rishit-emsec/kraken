@@ -6,7 +6,13 @@ from collections import Counter
 
 def main():
     # data = ["100000110100111111001110010101110101011111111010111011101101100000001001101101100001111000111010000110110001110000", "1152173", "1152140", "111111010101101110100001101011111100000000111101011000011111101001100100111101100001100111000110011000010000000010"]
+    bitstream1 = str(input('Enter keystream to crack: '))
+    frame1 = str(input('Enter frame 1: '))
+    frame2 = str(input('Enter frame 2: '))
+    bitstream2 = str(input('Enter keystream: '))
+    data = [bitstream1, frame1, frame2, bitstream2]
     
+    '''
     datas = input_data()
     for data in datas:
         found = allocate_tables(data[0])
@@ -15,7 +21,8 @@ def main():
     if not found:
         print("Not able to find match in rainbow table")
         sys.exit()
-
+    '''
+    found = allocate_tables(data[0])
     print(f"Found values: {found}")
     kc_value = find_kc(found, data)
 
@@ -25,11 +32,12 @@ def main():
     kc_value = kc_value.upper()
     print(f"We can return this output: {kc_value}")
 
-"""
+'''
 @params: Absolute path of the burst.txt file
 @return: List of XOR-ed bitstreams to try with Kraken and their
 corresponding modified frame number from the first and second encrypted burst
-"""
+'''
+'''
 def input_data():
     target = list()
     guess = list()
@@ -76,6 +84,7 @@ def input_data():
     datas = [[testing_bitstreams[0], guess[0][2][0:-1], guess[-1][2][0:-1], testing_bitstreamsp[-1]], [testing_bitstreams[1], guess[1][2][0:-1], guess[0][2][0:-1], testing_bitstreamsp[0]], [testing_bitstreams[2], guess[2][2][0:-1], guess[1][2][0:-1], testing_bitstreamsp[1]], [testing_bitstreams[3], guess[3][2][0:-1], guess[2][2][0:-1], testing_bitstreamsp[2]] 
 
     return datas
+'''
 
 def allocate_tables(target_stream):
 
