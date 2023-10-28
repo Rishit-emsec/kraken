@@ -17,21 +17,24 @@ To learn more about GSM check out this paper: https://academicworks.cuny.edu/cgi
 1. Go to this website: https://opensource.srlabs.de/projects/a51-decrypt/files
 2. Download all the *.torrent files OR download the one *.tgz file
 3. Use a BitTorrent client for step 2 OR you can attempt to find the google drive link to download the rainbow tables
-4. Step 3 should take quite long 
+4. Step 3 should take quite long. (or not if your internet connection is really good)
 5. Check md5 hash of all *.dlt files in your hard drive with command (md5 *.md5 OR md5sum *.md5) 
 6. Match hashes with: https://jenda.hrach.eu/f2/tables.txt 
 7. If hashes do not match, please re-download that specific file (and not all of them) 
 ### Kraken
 8. Clone this repository to your local computer (OS should be Ubuntu/Linux/DragonOS and either dual-boot or use a VM)
-9. Run `make noati` in the kraken directory
+9. Run `make noati` in the kraken directory (might have some warnings can usually ignore them)
 10. If in step 9 you get an error where you do not have stropts.h file, then run, `sudo touch /usr/include/stropts.h` and then repeat step 9
 11. Next, `cd a5_cpu` and run `./a5cpu_test`
 12. Check that the chains are made properly in steps 10 and 11
 ### Index rainbow tables
-13. `cd indexes`
+13. `cd ..` + `cd indexes` (goto kraken/indexes)
 14. Run `sudo parted -l` to check where your hard drive with indexed rainbow tables is located. Note: you should not be able to see this hard drive in your file manager, as it would seem corrupted to your computer
 15. Depending on step 14, replace the current location into the second line of your tables.conf file.
-16. e.g: /dev/sdb, should be put into your tables.conf file
+16. e.g: /dev/sdb, should be put into your tables.conf file. Make it one line if you want to index all 40 tables into one hard drive
+17. Then run sudo python2 Behemoth.py /home/media/name_of_harddrive_with_.dltrainbowtables
+18. check the md5 checksum of *.idx files formed
+19. simply reindex the files that have the wrong checksum, or you could repeat the whole process and hope for the best
 ### Entering Kraken
 18. `cd Kraken`
 19. Run sudo `sudo ./kraken ../indexes`
@@ -39,7 +42,7 @@ To learn more about GSM check out this paper: https://academicworks.cuny.edu/cgi
 21. Note that if allocation of rainbow tables is not done properly, one of your .idx files may be corrupt, you can reindex that particular file
 ### Automated version
 - Run setup.py in "kraken/auto/"
-- Index rainbow tables (steps 13 - 16)
+- Index rainbow tables (from step 13 onwards)
 - Run auto.py in "kraken/auto/"
 - Enter inputs required
 - Refer to this video for inputs required: https://www.youtube.com/watch?v=1KTSQOQWPsU&t=925s
@@ -75,3 +78,8 @@ To learn more about GSM check out this paper: https://academicworks.cuny.edu/cgi
 - store the plaintext -> hashed value
 - use rainbow tables to crack
 - for more in-depth explanation check online
+
+### Important links and videos to watch
+- https://www.youtube.com/watch?v=8MWzFyE4k8s&t=702s
+- https://www.youtube.com/watch?v=1KTSQOQWPsU
+- Crazy danish hacker videos on Kraken
